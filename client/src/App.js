@@ -1,15 +1,19 @@
-import Navbar from "./components/navbar/Navbar";
-import LeftBar from "./components/leftBar/LeftBar";
-import RightBar from "./components/rightBar/RightBar";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import Home from "./pages/home/Home";
-import Profile from "./pages/profile/Profile";
+import Navbar from "./components/navbar/Navbar.jsx";
+import LeftBar from "./components/leftBar/LeftBar.jsx";
+import RightBar from "./components/rightBar/RightBar.jsx";
+import Login from "./pages/login/Login.jsx";
+import Register from "./pages/register/Register.jsx";
+import Home from "./pages/home/Home.jsx";
+import Profile from "./pages/profile/Profile.jsx";
+// import Layout from "./components/layout/Layout";
 
-import {createBrowserRouter,RouterProvider,Route, Outlet} from "react-router-dom"
+import {createBrowserRouter,RouterProvider,Route, Outlet, Navigate} from "react-router-dom"
 
 
 function App() {
+
+  //make it false
+  const currentUser=true;
   
   const Layout=()=>{
     return(
@@ -24,10 +28,22 @@ function App() {
     )
   }
 
+  const ProtectedRoute=({children})=>{
+    if(!currentUser) {
+      return <Navigate to="/login"/>
+    }
+    return children;
+  }
+
   const router=createBrowserRouter([
     {
       path:"/",
-      element:<Layout/>,
+      element:
+
+      //check if the user is logged in or not and it takes in counth everything which are under Layout function.
+      <ProtectedRoute>
+        <Layout/>
+      </ProtectedRoute>,
       children:[
         {
           path:"/",
@@ -56,50 +72,3 @@ function App() {
 }
 
 export default App;
-
-
-// import Navbar from "./components/navbar/Navbar";
-// import LeftBar from "./components/leftBar/LeftBar";
-// import RightBar from "./components/rightBar/RightBar";
-// import Login from "./pages/login/Login";
-// import Register from "./pages/register/Register";
-// import Home from "./pages/home/Home";
-// import Profile from "./pages/profile/Profile";
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// // Define Layout as a React component
-// const Layout = ({ children }) => {
-//   return (
-//     <div>
-//       <Navbar />
-//       <div style={{ display: "flex" }}>
-//         <LeftBar />
-//         {children}
-//         <RightBar />
-//       </div>
-//     </div>
-//   );
-// };
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route
-//           path="/"
-//           element={
-//             <Layout>
-//               <Route index element={<Home />} />
-//               <Route path="profile/:id" element={<Profile />} />
-//             </Layout>
-//           }
-//         />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/register" element={<Register />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
