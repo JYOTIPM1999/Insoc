@@ -14,12 +14,24 @@ const Navbar = () => {
       <div className="left">
         <Link to="/" style={{textDecoration:"none"}}>
           <span>Insocian</span>
-          <HomeOutlinedIcon/>
-          <DarkModeOutlinedIcon/>
-          <GridViewOutlinedIcon/>
         </Link>
+        <HomeOutlinedIcon/>
+        <DarkModeOutlinedIcon/>
+        <GridViewOutlinedIcon/>
+        <div className="search">
+          <SearchOutlinedIcon/>
+          <input type="text" placeholder="Search..." />
+        </div>
       </div>
-      <div className="right"></div>
+      <div className="right">
+        <PersonOutlinedIcon/>
+        <EmailOutlinedIcon/>
+        <NotificationsOutlinedIcon/>
+        <div className="user">
+          <img src="https://images.pexels.com/photos/19429185/pexels-photo-19429185/free-photo-of-studio-shot-of-two-ripe-lemons.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <span>John Doe</span>
+        </div>
+      </div>
     </div>
   )
 }
