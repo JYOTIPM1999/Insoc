@@ -17,6 +17,7 @@ import { AuthContext } from "../../context/authContext";
 
 const LeftBar = () => {
   const { currentUser } = useContext(AuthContext);
+  // console.log("left", currentUser);
 
   return (
     <div className="leftBar">

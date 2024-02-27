@@ -10,6 +10,9 @@
     color: themed("textColor");
     margin-bottom: 20px;
 
+    @include mobile {
+      padding: 0px;
+    }
     .container {
       padding: 20px;
       .top {
