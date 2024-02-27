@@ -1,36 +1,14 @@
-import LeftBar from "../../components/leftBar/LeftBar.jsx"
-import Navbar from "../../components/navbar/Navbar.jsx"
-import RightBar from "../../components/rightBar/RightBar.jsx"
-import "./home.scss"
+import "./home.scss";
+import Stories from "../../components/stories/Stories.jsx";
+import Posts from "../../components/posts/Posts.jsx";
 
 const Home = () => {
   return (
     <div className="home">
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
+      <Stories />
+      <Posts />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

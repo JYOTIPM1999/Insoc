@@ -5,70 +5,80 @@ import Login from "./pages/login/Login.jsx";
 import Register from "./pages/register/Register.jsx";
 import Home from "./pages/home/Home.jsx";
 import Profile from "./pages/profile/Profile.jsx";
-// import Layout from "./components/layout/Layout";
+import "./style.scss";
 
-import {createBrowserRouter,RouterProvider,Route, Outlet, Navigate} from "react-router-dom"
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkModeContext.jsx";
+import { AuthContext } from "./context/authContext.jsx";
 
 function App() {
-
   //make it false
-  const currentUser=true;
-  
-  const Layout=()=>{
-    return(
-      <div>
-        <Navbar/>
-        <div style={{display:"flex"}}>
-          <LeftBar/>
-          <div style={{flex:6}}>
-            <Outlet/>
+  const { currentUser } = useContext(AuthContext);
+
+  const { darkMode } = useContext(DarkModeContext);
+  console.log(darkMode);
+
+  const Layout = () => {
+    return (
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
+        <Navbar />
+        <div style={{ display: "flex" }}>
+          <LeftBar />
+          <div style={{ flex: 6 }}>
+            <Outlet />
           </div>
-          <RightBar/>
+          <RightBar />
         </div>
       </div>
-    )
-  }
+    );
+  };
 
-  const ProtectedRoute=({children})=>{
-    if(!currentUser) {
-      return <Navigate to="/login"/>
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
     }
     return children;
-  }
+  };
 
-  const router=createBrowserRouter([
+  const router = createBrowserRouter([
     {
-      path:"/",
-      element:
-
-      //check if the user is logged in or not and it takes in counth everything which are under Layout function.
-      <ProtectedRoute>
-        <Layout/>
-      </ProtectedRoute>,
-      children:[
+      path: "/",
+      element: (
+        //check if the user is logged in or not and it takes in counth everything which are under Layout function.
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ),
+      children: [
         {
-          path:"/",
-          element:<Home/>
+          path: "/",
+          element: <Home />,
         },
         {
-          path:"/profile/:id",
-          element:<Profile/>
-        }
-      ]
+          path: "/profile/:id",
+          element: <Profile />,
+        },
+      ],
     },
     {
-      path:"/login",
-      element:<Login/>
+      path: "/login",
+      element: <Login />,
     },
     {
-      path:"/register",
-      element:<Register/>
-    }
-  ])
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
   return (
     <div>
-     <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
   );
 }
