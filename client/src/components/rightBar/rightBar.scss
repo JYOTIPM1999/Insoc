@@ -1,88 +1,93 @@
 @import "../../style.scss";
 
+.rightBar {
+  @include themify($themes) {
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    background-color: themed("bgSoft");
 
-.rightBar{
-    @include themify($themes){
-        flex: 3;
-        position: sticky;
-        top: 70px;
-        background-color: themed("bgSoft");
-
-        //this is for to stick at 70 px and scroll when overflow
-        height: calc(100vh - 70px);
-        overflow: scroll;
-        &::-webkit-scrollbar{
-            display: none;
-        }
-        .container{
-            padding: 20px;
-            .item{
-                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-                padding: 20px;
-                margin-bottom: 20px;
-                background-color: themed("bg");
-
-
-                span{
-                    color: gray;
-                }
-                .user{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin: 20px 0px;
-
-                    .userInfo{
-                        display: flex;
-                        align-items: center;
-                        gap: 20px;
-                        position: relative;
-                        img{
-                            width: 40px;
-                            height: 40px;
-                            border-radius: 50%;
-                            object-fit: cover;
-                        }
-                        p{
-                            color: themed("textColorSoft");
-                        }
-                        .online{
-                            width: 12px;
-                            height: 12px;
-                            border-radius: 50%;
-                            background-color: limegreen;
-                            position: absolute;
-                            top: 0;
-                            left: 30px;
-                        }
-                        span{
-                            font-weight: 500;
-                            color: themed("textColor");
-                            
-                        }
-                    }
-                    .buttons{
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-
-                        button{
-                            border: none;
-                            padding: 5px;
-                            border-radius: 10%;
-                            color: white;
-                            cursor: pointer;
-
-                            &:first-child{
-                                background-color: blueviolet;
-                            }
-                            &:last-child{
-                                background-color: red;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    @include mobile {
+      display: none;
     }
+
+    @include tablet {
+      display: none;
+    }
+
+    //this is for to stick at 70 px and scroll when overflow
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .container {
+      padding: 20px;
+      .item {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: themed("bg");
+
+        span {
+          color: gray;
+        }
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 20px 0px;
+
+          .userInfo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            p {
+              color: themed("textColorSoft");
+            }
+            .online {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background-color: limegreen;
+              position: absolute;
+              top: 0;
+              left: 30px;
+            }
+            span {
+              font-weight: 500;
+              color: themed("textColor");
+            }
+          }
+          .buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            button {
+              border: none;
+              padding: 5px;
+              border-radius: 10%;
+              color: white;
+              cursor: pointer;
+
+              &:first-child {
+                background-color: blueviolet;
+              }
+              &:last-child {
+                background-color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -9,6 +9,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 import LanguageIcon from "@mui/icons-material/Language";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Posts from "../../components/posts/Posts";
 
 const profile = () => {
   return (
@@ -55,11 +56,15 @@ const profile = () => {
                 <LanguageIcon />
                 <span>Insoc.dev</span>
               </div>
-              <button>Follow</button>
             </div>
+            <button>Follow</button>
           </div>
-          <div className="right"></div>
+          <div className="right">
+            <EmailOutlinedIcon />
+            <MoreVertIcon />
+          </div>
         </div>
+        <Posts />
       </div>
     </div>
   );
