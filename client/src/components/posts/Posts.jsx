@@ -4,12 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios.jsx";
 
 const Posts = () => {
-  // const { isPending, error, data } = useQuery(["posts"], () => {
-  //   makeRequest.get("/posts").then((res) => {
-  //     return res.data;
-  //   });
-  // });
-
   const { isPending, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>
