@@ -31,6 +31,7 @@ const Comments = ({ postId }) => {
   const [desc, setDesc] = useState("");
 
   const { isPending, error, data } = useQuery({
+    // queryKey: ["comments" + postId],
     queryKey: ["comments"],
     queryFn: () =>
       makeRequest.get("/comments?postId=" + postId).then((res) => {
@@ -42,6 +43,7 @@ const Comments = ({ postId }) => {
 
   const mutation = useMutation({
     mutationFn: (newComment) => {
+      console.log(newComment);
       return makeRequest.post("/comments", newComment);
     },
     onSuccess: () => {
@@ -49,6 +51,18 @@ const Comments = ({ postId }) => {
       queryClient.invalidateQueries({ queryKey: ["comments"] });
     },
   });
+
+  // const mutation = useMutation(
+  //   (newComment) => {
+  //     return makeRequest.post("/comments", newComment);
+  //   },
+  //   {
+  //     onSuccess: () => {
+  //       // Invalidate and refetch
+  //       queryClient.invalidateQueries(["comments"]);
+  //     },
+  //   }
+  // );
 
   const handleClick = async (e) => {
     e.preventDefault();
