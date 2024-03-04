@@ -30,13 +30,28 @@ const Comments = ({ postId }) => {
   const { currentUser } = useContext(AuthContext);
   const [desc, setDesc] = useState("");
 
+  // const { isPending, error, data } = useQuery({
+  //   // queryKey: ["comments" + postId],
+  //   queryKey: ["comments"],
+  //   queryFn: () =>
+  //     makeRequest.get("/comments?postId=" + postId).then((res) => {
+  //       console.log("getComment", data);
+  //       return res.data;
+  //     }),
+  // });
+
   const { isPending, error, data } = useQuery({
-    // queryKey: ["comments" + postId],
     queryKey: ["comments"],
-    queryFn: () =>
-      makeRequest.get("/comments?postId=" + postId).then((res) => {
-        return res.data;
-      }),
+    queryFn: async () => {
+      try {
+        const response = await makeRequest.get("/comments?postId=" + postId);
+        console.log("getComment", response.data);
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching comments:", error.message);
+        throw error;
+      }
+    },
   });
 
   const queryClient = useQueryClient();
@@ -51,18 +66,6 @@ const Comments = ({ postId }) => {
       queryClient.invalidateQueries({ queryKey: ["comments"] });
     },
   });
-
-  // const mutation = useMutation(
-  //   (newComment) => {
-  //     return makeRequest.post("/comments", newComment);
-  //   },
-  //   {
-  //     onSuccess: () => {
-  //       // Invalidate and refetch
-  //       queryClient.invalidateQueries(["comments"]);
-  //     },
-  //   }
-  // );
 
   const handleClick = async (e) => {
     e.preventDefault();
