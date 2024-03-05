@@ -6,6 +6,7 @@ import authRoutes from "./src/routes/auth.js";
 import likeRoutes from "./src/routes/likes.js";
 import commentRoutes from "./src/routes/comments.js";
 import postRoutes from "./src/routes/posts.js";
+import relationshipRoutes from "./src/routes/relationships.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
@@ -42,6 +43,7 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/relationships", relationshipRoutes);
 
 app.listen(9500, () => {
   console.log("Api working");
