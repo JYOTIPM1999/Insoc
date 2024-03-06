@@ -56,7 +56,7 @@ const Profile = () => {
   const handleFollow = () => {
     mutation.mutate(relationshipData.includes(currentUser.id));
   };
-  console.log(data);
+  // console.log(data);
   return (
     <div className="profile">
       {isPending ? (
