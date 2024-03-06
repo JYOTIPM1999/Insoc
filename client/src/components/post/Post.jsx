@@ -73,7 +73,9 @@ const Post = ({ post }) => {
             </div>
           </div>
           <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
-          {menuOpen && <button onClick={handleDelete}>Delete</button>}
+          {menuOpen && post.userId === currentUser.id && (
+            <button onClick={handleDelete}>Delete</button>
+          )}
         </div>
         <div className="content">
           <p>{post.desc}</p>
