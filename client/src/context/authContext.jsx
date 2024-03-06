@@ -18,14 +18,6 @@ export const AuthContextProvider = ({ children }) => {
     );
 
     setCurrentUser(res.data);
-
-    //Temporary
-    // setCurrentUser({
-    //   id: 1,
-    //   name: "Jyoti Prakash",
-    //   profilePic:
-    //     "https://images.pexels.com/photos/19429185/pexels-photo-19429185/free-photo-of-studio-shot-of-two-ripe-lemons.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    // });
   };
 
   useEffect(() => {
