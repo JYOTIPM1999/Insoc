@@ -19,7 +19,6 @@ import { AuthContext } from "../../context/authContext";
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
 
-  console.log(currentUser);
   const userId = parseInt(useLocation().pathname.split("/")[2]);
   const { isPending, error, data } = useQuery({
     queryKey: ["user"],
@@ -36,15 +35,13 @@ const Profile = () => {
       }),
   });
 
-  console.log("relationshipData", relationshipData);
-  // console.log(typeof userId);
-  // console.log(currentUser.id);
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (following) => {
-      if (following)
+      if (following) {
         return makeRequest.delete("/relationships?userId=" + userId);
+      }
 
       return makeRequest.post("/relationships", { userId });
     },
@@ -116,7 +113,7 @@ const Profile = () => {
                 <MoreVertIcon />
               </div>
             </div>
-            <Posts />
+            <Posts userId={userId} />
           </div>
         </>
       )}
