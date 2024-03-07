@@ -31,6 +31,7 @@ const Profile = () => {
         return res.data;
       }),
   });
+
   const { isLoading: rIsLoading, data: relationshipData } = useQuery({
     queryKey: ["relationship"],
     queryFn: () =>
@@ -58,7 +59,7 @@ const Profile = () => {
   const handleFollow = () => {
     mutation.mutate(relationshipData.includes(currentUser.id));
   };
-  // console.log(data);
+  console.log("data", relationshipData);
   return (
     <div className="profile">
       {isPending ? (
