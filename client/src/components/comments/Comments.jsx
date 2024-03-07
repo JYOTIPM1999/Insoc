@@ -45,10 +45,10 @@ const Comments = ({ postId }) => {
     queryFn: async () => {
       try {
         const response = await makeRequest.get("/comments?postId=" + postId);
-        console.log("getComment", response.data);
+        // console.log("getComment", response.data);
         return response.data;
       } catch (error) {
-        console.error("Error fetching comments:", error.message);
+        // console.error("Error fetching comments:", error.message);
         throw error;
       }
     },
