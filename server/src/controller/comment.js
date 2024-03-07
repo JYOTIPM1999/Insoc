@@ -27,10 +27,10 @@ export const addComment = (req, res) => {
       userInfo.id,
       req.body.postId,
     ];
-    console.log("values", values);
+    // console.log("values", values);
 
     db.query(q, [values], (err, data) => {
-      console.log("data", data);
+      // console.log("data", data);
       if (err) return res.status(500).json(err);
       return res.status(200).json("Comment has been created....");
     });

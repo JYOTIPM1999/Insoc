@@ -21,11 +21,7 @@ app.use(express.json());
 // app.use(cors());
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://insoc-c8mljnz9r-jyotipm1999.vercel.app/",
-      "https://insoc.vercel.app/",
-    ],
+    origin: ["http://localhost:3000"],
     withCredentials: true,
   })
 );

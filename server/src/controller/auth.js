@@ -30,7 +30,6 @@ export const register = (req, res) => {
 };
 
 export const login = (req, res) => {
-  // console.log(req);
   const q = "SELECT * FROM users WHERE username= ? ";
 
   db.query(q, [req.body.username], (err, data) => {

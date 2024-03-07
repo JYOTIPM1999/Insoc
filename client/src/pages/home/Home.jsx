@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const Home = (req, res) => {
   // const navigate = useNavigate();
-  const accessToken = document.cookie.split("; ");
+  // const accessToken = document.cookie.split("; ");
   // .find((row) => row.startsWith("accessToken="));
 
-  console.log(accessToken);
+  // console.log(accessToken);
 
   // if (!accessToken) {
   //   navigate("/login"); // Assuming "/login" is the route for the login page

@@ -12,7 +12,7 @@ const Login = () => {
     password: "",
   });
   const [err, setErr] = useState(null);
-  console.log(inputs);
+  // console.log(inputs);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -24,7 +24,7 @@ const Login = () => {
       await login(inputs);
       navigate("/");
     } catch (err) {
-      setErr(err.response.data);
+      setErr(err.response?.data);
     }
   };
 
