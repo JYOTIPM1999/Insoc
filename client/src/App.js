@@ -22,6 +22,7 @@ import { AuthContext } from "./context/authContext.jsx";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
+  // console.log("currentUser", currentUser);
 
   const { darkMode } = useContext(DarkModeContext);
 
@@ -55,7 +56,7 @@ function App() {
     {
       path: "/",
       element: (
-        //check if the user is logged in or not and it takes in counth everything which are under Layout function.
+        //check if the user is logged in or not and it takes in count everything which are under Layout function.
         <ProtectedRoute>
           <Layout />
         </ProtectedRoute>

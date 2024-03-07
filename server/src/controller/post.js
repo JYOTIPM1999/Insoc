@@ -5,8 +5,12 @@ import jwt from "jsonwebtoken";
 export const getPosts = (req, res) => {
   const userId = req.query.userId;
   const token = req.cookies.accessToken;
+  // const navigate = useNavigate();
 
-  if (!token) return res.status(401).json("Not Logged in!");
+  if (!token) {
+    return res.status(401).json("Not Logged in!");
+    // navigate("/login");
+  }
   jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 

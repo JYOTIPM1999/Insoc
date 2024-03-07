@@ -18,7 +18,15 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://insoc-c8mljnz9r-jyotipm1999.vercel.app/",
+    ],
+  })
+);
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
