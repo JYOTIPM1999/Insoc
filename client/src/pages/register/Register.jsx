@@ -20,10 +20,6 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:9500/api/auth/register", inputs);
-      // await axios.post(
-      //   "https://insoc-c8mljnz9r-jyotipm1999.vercel.app/auth/register",
-      //   inputs
-      // );
     } catch (err) {
       setErr(err.response?.data);
     }
