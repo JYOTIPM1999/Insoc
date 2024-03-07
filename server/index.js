@@ -26,6 +26,7 @@ app.use(
       "https://insoc-c8mljnz9r-jyotipm1999.vercel.app/",
       "https://insoc.vercel.app/",
     ],
+    withCredentials: true,
   })
 );
 app.use(cookieParser());
