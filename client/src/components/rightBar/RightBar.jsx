@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/authContext";
 
 const RightBar = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  // console.log(currentUser);
   return (
     <div className="rightBar">
       <div className="container">

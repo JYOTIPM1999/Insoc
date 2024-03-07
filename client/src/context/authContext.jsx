@@ -11,12 +11,13 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     const res = await axios.post(
       "http://localhost:9500/api/auth/login",
+      // "https://insoc-c8mljnz9r-jyotipm1999.vercel.app/auth/login",
       inputs,
       {
         withCredentials: true,
       }
     );
-    console.log("authdata", res.data);
+    // console.log("authdata", res.data);
     setCurrentUser(res.data);
   };
 

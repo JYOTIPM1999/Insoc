@@ -50,7 +50,7 @@ export const login = (req, res) => {
     // TOOK EVERYTHING EXCEPT PASSWORD
     const { password, ...others } = data[0];
     // console.log("Dattttta", data[0]);
-    const expirationDate = new Date(Date.now() + 7 * 24 * 60 * 60);
+    const expirationDate = new Date(Date.now() + 1000 * 7 * 24 * 60 * 60);
     res
       .cookie("accessToken", token, { expires: expirationDate, httpOnly: true })
       .status(200)

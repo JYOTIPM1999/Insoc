@@ -22,6 +22,8 @@ const Profile = () => {
   const { currentUser } = useContext(AuthContext);
 
   const userId = parseInt(useLocation().pathname.split("/")[2]);
+  console.log("Profile UserId", userId);
+
   const { isPending, error, data } = useQuery({
     queryKey: ["user"],
     queryFn: () =>
@@ -63,20 +65,20 @@ const Profile = () => {
         "loading"
       ) : (
         <>
-          {/* {data && ( */}
-          <div className="images">
-            <img
-              src={"/upload/" + data.coverPic}
-              alt="Cover Pic"
-              className="cover"
-            />
-            <img
-              src={"/upload/" + data.profilePic}
-              alt="Profile Pic"
-              className="profilePic"
-            />
-          </div>
-          {/* )} */}
+          {data && (
+            <div className="images">
+              <img
+                src={"/upload/" + data.coverPic}
+                alt="Cover Pic"
+                className="cover"
+              />
+              <img
+                src={"/upload/" + data.profilePic}
+                alt="Profile Pic"
+                className="profilePic"
+              />
+            </div>
+          )}
           <div className="profileContainer">
             <div className="uInfo">
               <div className="left">
