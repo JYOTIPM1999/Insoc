@@ -10,9 +10,6 @@ import relationshipRoutes from "./src/routes/relationships.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
-import dotenv from "dotenv";
-dotenv.config();
-console.log(process.env.DB_HOST);
 
 //MIDDLEWARE
 app.use((req, res, next) => {
