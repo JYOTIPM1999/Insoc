@@ -55,7 +55,7 @@ export const login = (req, res) => {
         expires: expirationDate,
         httpOnly: true,
         // secure: true,
-        sameSite: "None",
+        // sameSite: "None",
       })
       .status(200)
       .json(others);

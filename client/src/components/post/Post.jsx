@@ -14,6 +14,7 @@ import { makeRequest } from "../../axios.jsx";
 import { AuthContext } from "../../context/authContext.jsx";
 
 const Post = ({ post }) => {
+  // console.log("post", post);
   const [commentOpen, setCommentOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

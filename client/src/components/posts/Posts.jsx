@@ -12,8 +12,9 @@ const Posts = ({ userId }) => {
       makeRequest.get("/posts?userId=" + userId).then((res) => {
         return res.data;
       }),
+    // enabled: !!userId, // Enable the query only when userId is true
   });
-  // console.log("data", data);
+  console.log("data", data);
 
   return (
     <div className="posts">
