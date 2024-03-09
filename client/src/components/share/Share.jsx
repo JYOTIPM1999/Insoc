@@ -19,7 +19,8 @@ const Share = () => {
       const res = await makeRequest.post("/upload", formData);
       return res.data;
     } catch (err) {
-      console.log(err);
+      console.log("error", err);
+      //there is no "/upload" url thats why err is showing
     }
   };
 
