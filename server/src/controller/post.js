@@ -51,8 +51,8 @@ export const addPost = (req, res) => {
     ];
     console.log(values);
     db.query(q, [values], (err, data) => {
-      if (err) return res.json("No Upload url available");
-      // if (err) return res.status(500).json(err);
+      // if (err) return res.json("No Upload url available");
+      if (err) return res.status(500).json(err);
       return res.status(200).json("Post has been created");
     });
   });
