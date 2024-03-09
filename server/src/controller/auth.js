@@ -54,8 +54,8 @@ export const login = (req, res) => {
       .cookie("accessToken", token, {
         expires: expirationDate,
         httpOnly: true,
-        // secure: true,
-        // sameSite: "None",
+        secure: true,
+        sameSite: "None",
       })
       .status(200)
       .json(others);

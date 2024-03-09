@@ -20,7 +20,10 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://insoc.vercel.app/"],
+    origin: [
+      "http://localhost:3000",
+      //  "https://insoc.vercel.app/"
+    ],
     withCredentials: true,
     credentials: true,
   })
