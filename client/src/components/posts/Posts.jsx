@@ -4,7 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios.jsx";
 
 const Posts = ({ userId }) => {
-  // console.log("userId", userId);
+  console.log("userId", userId);
+
   const { isPending, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>
@@ -17,7 +18,7 @@ const Posts = ({ userId }) => {
   return (
     <div className="posts">
       {error
-        ? "Something went wrong"
+        ? "Something went wrong, User not logged in! or unable to access token"
         : isPending
         ? "Loading"
         : data.map((post) => <Post post={post} key={post.id} />)}

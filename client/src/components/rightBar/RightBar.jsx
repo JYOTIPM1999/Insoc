@@ -3,7 +3,7 @@ import "./rightBar.scss";
 import { AuthContext } from "../../context/authContext";
 
 const RightBar = () => {
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
   // console.log(currentUser);
   return (
     <div className="rightBar">

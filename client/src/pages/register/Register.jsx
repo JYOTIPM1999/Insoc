@@ -19,7 +19,11 @@ const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:9500/api/auth/register", inputs);
+      // await axios.post("http://localhost:9500/api/auth/register", inputs);
+      await axios.post(
+        "https://insoc-hkts.vercel.app/api/auth/register",
+        inputs
+      );
     } catch (err) {
       setErr(err.response?.data);
     }

@@ -51,15 +51,20 @@ export const login = (req, res) => {
     // console.log("Dattttta", data[0]);
     const expirationDate = new Date(Date.now() + 1000 * 7 * 24 * 60 * 60);
     res
-      .cookie("accessToken", token, { expires: expirationDate, httpOnly: true })
+      .cookie("accessToken", token, {
+        expires: expirationDate,
+        httpOnly: true,
+        // secure: true,
+        sameSite: "None",
+      })
       .status(200)
       .json(others);
   });
 };
 
-export const logout = (req, res) => {
-  res
-    .clearCookie("accessToken", { secure: true, sameSite: "none" })
-    .status(200)
-    .json("User logged out successfully");
-};
+// export const logout = (req, res) => {
+//   res
+//     .clearCookie("accessToken", { secure: true, sameSite: "none" })
+//     .status(200)
+//     .json("User logged out successfully");
+// };

@@ -6,6 +6,9 @@ export const getPosts = (req, res) => {
   const userId = req.query.userId;
   const token = req.cookies.accessToken;
 
+  console.log("userId", userId);
+  // console.log("access", token);
+
   if (!token) {
     return res.status(401).json("Not Logged in!");
   }
@@ -31,6 +34,7 @@ export const getPosts = (req, res) => {
 
 export const addPost = (req, res) => {
   const token = req.cookies.accessToken;
+  console.log("addpostToken", token);
 
   if (!token) return res.status(401).json("Not Logged in!");
   jwt.verify(token, "secretkey", (err, userInfo) => {
@@ -45,7 +49,7 @@ export const addPost = (req, res) => {
       moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
       userInfo.id,
     ];
-
+    // console.log(values);
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("Post has been created");

@@ -3,23 +3,18 @@ import Stories from "../../components/stories/Stories.jsx";
 import Posts from "../../components/posts/Posts.jsx";
 import Share from "../../components/share/Share.jsx";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext.jsx";
 
 const Home = (req, res) => {
-  // const navigate = useNavigate();
-  // const accessToken = document.cookie.split("; ");
-  // .find((row) => row.startsWith("accessToken="));
+  const { currentUser } = useContext(AuthContext);
+  const userId = currentUser.id;
 
-  // console.log(accessToken);
-
-  // if (!accessToken) {
-  //   navigate("/login"); // Assuming "/login" is the route for the login page
-  //   return null; // Stop rendering the current component
-  // }
   return (
     <div className="home">
       <Stories />
       <Share />
-      <Posts />
+      <Posts userId={userId} />
     </div>
   );
 };
