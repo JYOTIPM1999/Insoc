@@ -20,7 +20,7 @@ const Share = () => {
       return res.data;
     } catch (err) {
       console.log("error", err);
-      //there is no "/upload" url thats why err is showing
+      // "https://insoc-hkts.vercel.app/api/upload" should be in backend
     }
   };
 

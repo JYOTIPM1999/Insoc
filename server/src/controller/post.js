@@ -2,12 +2,15 @@ import moment from "moment";
 import { db } from "../connect.js";
 import jwt from "jsonwebtoken";
 
+import path from "path";
+import multer from "multer";
+
 export const getPosts = (req, res) => {
   const userId = req.query.userId;
   const token = req.cookies.accessToken;
 
-  console.log("userId", userId);
-  console.log("access", token);
+  // console.log("userId", userId);
+  // console.log("access", token);
 
   if (!token) {
     return res.status(401).json("Not Logged in!");
@@ -51,7 +54,6 @@ export const addPost = (req, res) => {
     ];
     console.log(values);
     db.query(q, [values], (err, data) => {
-      // if (err) return res.json("No Upload url available");
       if (err) return res.status(500).json(err);
       return res.status(200).json("Post has been created");
     });
@@ -75,3 +77,28 @@ export const deletePost = (req, res) => {
     });
   });
 };
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, path.join(upload, "../../uploads/")); // Specify the directory where you want to store the uploaded files
+//   },
+//   filename: function (req, file, cb) {
+//     cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
+
+// const upload = multer({ storage: storage });
+
+// export const uploadFile = (req, res) => {
+//   // Handle the file upload using 'upload' middleware
+//   // Access the uploaded file via 'req.file'
+//   console.log(req);
+
+//   // Example: Save the file path to the database or perform other operations
+//   const filePath = req.file.path;
+
+//   res.status(200).json({ filePath });
+// };
