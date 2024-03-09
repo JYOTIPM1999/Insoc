@@ -10,7 +10,7 @@ export const getPosts = (req, res) => {
   console.log("access", token);
 
   if (!token) {
-    return res.status(404).json("Not Logged in!");
+    return res.status(401).json("Not Logged in!");
   }
   jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
