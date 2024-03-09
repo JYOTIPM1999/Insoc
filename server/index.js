@@ -23,6 +23,7 @@ app.use(
     // origin: ["http://localhost:3000"],
     origin: ["https://insoc.vercel.app/"],
     withCredentials: true,
+    credentials: true,
   })
 );
 app.use(cookieParser());
