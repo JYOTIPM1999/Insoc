@@ -10,8 +10,8 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = async (inputs) => {
     const res = await axios.post(
-      // "http://localhost:9500/api/auth/login",
-      "https://insoc-hkts.vercel.app/api/auth/login",
+      "http://localhost:9500/api/auth/login",
+      // "https://insoc-hkts.vercel.app/api/auth/login",
       inputs,
       {
         withCredentials: true,
