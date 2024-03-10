@@ -22,7 +22,7 @@ const Profile = () => {
   const { currentUser } = useContext(AuthContext);
 
   const userId = parseInt(useLocation().pathname.split("/")[2]);
-  console.log("Profile UserId", userId);
+  // console.log("Profile UserId", userId);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["user"],
